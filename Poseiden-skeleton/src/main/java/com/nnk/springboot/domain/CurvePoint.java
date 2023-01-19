@@ -9,18 +9,20 @@ import java.sql.Timestamp;
 
 
 @Entity
-@Table(name = "curvepoint")
+@Table(name = "Curvepoint")
 public class CurvePoint {
 	 @Id
 	 @GeneratedValue(strategy= GenerationType.AUTO)
 	 private Integer Id;
-	 @NotBlank(message = "must not be null")
 	 private int CurveId;
 	 private Timestamp asOfDate;
 	 private double term;
 	 private double value;
 	 private Timestamp creationDate;
 	 
+	
+	public CurvePoint() {
+		}
 	 
 	public CurvePoint(int CurveId, double term, double value) {
 		this.CurveId = CurveId;

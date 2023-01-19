@@ -9,7 +9,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "bidList")
+@Table(name = "Bidlist")
 public class BidList {
 
 	 @Id
@@ -40,7 +40,10 @@ public class BidList {
 	 private String side;
 	 
 	 
-	public BidList(String account, String type, double bidQuantity) {
+	 public BidList() {
+		}
+	 
+	 public BidList(String account, String type, double bidQuantity) {
 		this.account = account;
 		this.type = type;
 		this.bidQuantity = bidQuantity;

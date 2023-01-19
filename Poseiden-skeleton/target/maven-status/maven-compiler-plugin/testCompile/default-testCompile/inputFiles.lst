@@ -1,6 +1,14 @@
-C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\RatingTests.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\BidTests.java
-C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\CurvePointTests.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\TradeTests.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\RuleTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\CurvePointServiceTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\TradeServiceTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controller\CurveControllerTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\RatingServiceTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\RuleNameServiceTests.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\PasswordEncodeTest.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\UserServiceTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\RatingTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\CurvePointTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controller\BidListControllerTests.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\BidListServiceTests.java

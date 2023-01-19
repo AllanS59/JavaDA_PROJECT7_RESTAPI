@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "rulename")
+@Table(name = "Rulename")
 public class RuleName {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
@@ -17,6 +17,8 @@ public class RuleName {
 	private String sqlStr;
 	private String sqlPart;
 	
+	public RuleName() {
+	}
 	
 	public RuleName(String name, String description, String json, String template, String sqlStr, String sqlPart) {
 		this.name = name;

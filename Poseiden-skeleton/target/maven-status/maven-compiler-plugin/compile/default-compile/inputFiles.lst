@@ -1,3 +1,4 @@
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\config\CustomUserDetailsService.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\services\RatingService.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\TradeRepository.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\domain\Trade.java
@@ -21,6 +22,7 @@ C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJEC
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\services\RuleNameService.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\CurveController.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\Application.java
+C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\config\SpringSecurityConfig.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\domain\User.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\UserRepository.java
 C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\RatingRepository.java

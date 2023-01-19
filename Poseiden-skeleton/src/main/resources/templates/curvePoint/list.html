@@ -43,8 +43,10 @@
 				<td><span th:text="${curvePoint.CurveId}"> CurvePointId </span></td>
 				<td><span th:text="${curvePoint.term}"> Term </span></td>
 				<td><span th:text="${curvePoint.value}"> Value </span></td>
-				<td><a href="@{/curvePoint/update/{id}(id=${curvePoint.Id})}">Edit</a>&nbsp;|&nbsp;
-					<a href="@{/curvePoint/delete/{id}(id=${curvePoint.Id})}">Delete</a></td>
+				<td style="width: 15%" class="text-center">
+					<a th:href="@{/curvePoint/update/{id}(id=${curvePoint.Id})}">Edit</a>&nbsp;|&nbsp;
+					<a th:href="@{/curvePoint/delete/{id}(id=${curvePoint.Id})}">Delete</a>
+				</td>
 			</tr>
 			</tbody>
 		</table>

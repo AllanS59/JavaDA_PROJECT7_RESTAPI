@@ -49,8 +49,10 @@
 				<td><span th:text="${ruleName.template}"> template </span></td>
 				<td><span th:text="${ruleName.sqlStr}"> sql </span></td>
 				<td><span th:text="${ruleName.sqlPart}"> sqlPart </span></td>
-				<td><a href="@{/ruleName/update/{id}(id=${ruleName.Id})}">Edit</a>&nbsp;|&nbsp;
-					<a href="@{/ruleName/delete/{id}(id=${ruleName.Id})}">Delete</a></td>
+				<td style="width: 15%" class="text-center">
+					<a th:href="@{/ruleName/update/{id}(id=${ruleName.Id})}">Edit</a>&nbsp;|&nbsp;
+					<a th:href="@{/ruleName/delete/{id}(id=${ruleName.Id})}">Delete</a>
+				</td>
 			</tr>
 			</tbody>
 		</table>

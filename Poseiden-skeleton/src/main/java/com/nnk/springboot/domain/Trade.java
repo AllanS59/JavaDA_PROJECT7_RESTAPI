@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 
 
 @Entity
-@Table(name = "trade")
+@Table(name = "Trade")
 public class Trade {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
@@ -31,6 +31,8 @@ public class Trade {
 	private String sourceListId;
 	private String side;
 	
+	public Trade() {
+	}
 	
 	public Trade(String account, String type) {
 		this.account = account;

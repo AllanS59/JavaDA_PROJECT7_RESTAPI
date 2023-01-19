@@ -16,8 +16,12 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	
-	public Optional<User> getUser (final int Id) {
+	public Optional<User> getUserById (final int Id) {
 		return userRepository.findById(Id);
+	}
+	
+	public Optional<User> getUserByUsername (final String username) {
+		return userRepository.findByUsername(username);
 	}
 	
 	public List<User> getAllUser() {
