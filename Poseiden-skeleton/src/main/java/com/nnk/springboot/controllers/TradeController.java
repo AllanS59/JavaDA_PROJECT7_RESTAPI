@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-
 import javax.validation.Valid;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Controller
 public class TradeController {
+	
+	private static final Logger LOG = LogManager.getLogger(TradeController.class);
 	
    @Autowired
    private TradeService tradeService;
@@ -41,8 +45,10 @@ public class TradeController {
     	if (!result.hasErrors()) {
             tradeService.saveTrade(trade);
             model.addAttribute("listTrade", tradeService.getAllTrade());
+            LOG.info("Trade created. Id=" + trade.getTradeId());
             return "redirect:/trade/list";
         }
+    	LOG.info("Error during Trade creation. Trade is not created");
         return "trade/add";
     }
 
@@ -57,17 +63,20 @@ public class TradeController {
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
                              BindingResult result, Model model) {
     	 if (result.hasErrors()) {
+    		 LOG.info("Error during update of Trade (Id="+ id +"). Not updated");
              return "trade/update";
          }
     	 trade.setTradeId(id);
     	 tradeService.saveTrade(trade);
          model.addAttribute("listTrade", tradeService.getAllTrade());
+         LOG.info("Trade (Id="+ id +") is updated");
         return "redirect:/trade/list";
     }
 
     @GetMapping("/trade/delete/{id}")
     public String deleteTrade(@PathVariable("id") Integer id, Model model) {
        tradeService.deleteTrade(id);
+       LOG.info("Trade (Id="+ id +") is deleted");
         return "redirect:/trade/list";
     }
 }

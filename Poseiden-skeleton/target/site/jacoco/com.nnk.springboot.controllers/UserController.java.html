@@ -14,64 +14,75 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Controller
-<span class="fc" id="L18">public class UserController {</span>
+<span class="fc" id="L21">public class UserController {</span>
+	
+<span class="fc" id="L23">	private static final Logger LOG = LogManager.getLogger(UserController.class);</span>
+	
     @Autowired
     private UserRepository userRepository;
 
     @RequestMapping(&quot;/user/list&quot;)
     public String home(Model model)
     {
-<span class="nc" id="L25">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
-<span class="nc" id="L26">        return &quot;user/list&quot;;</span>
+<span class="nc" id="L31">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
+<span class="nc" id="L32">        return &quot;user/list&quot;;</span>
     }
 
     @GetMapping(&quot;/user/add&quot;)
     public String addUser(User bid) {
-<span class="nc" id="L31">        return &quot;user/add&quot;;</span>
+<span class="nc" id="L37">        return &quot;user/add&quot;;</span>
     }
 
     @PostMapping(&quot;/user/validate&quot;)
     public String validate(@Valid User user, BindingResult result, Model model) {
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (!result.hasErrors()) {</span>
-<span class="nc" id="L37">            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();</span>
-<span class="nc" id="L38">            user.setPassword(encoder.encode(user.getPassword()));</span>
-<span class="nc" id="L39">            userRepository.save(user);</span>
-<span class="nc" id="L40">            model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
-<span class="nc" id="L41">            return &quot;redirect:/user/list&quot;;</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (!result.hasErrors()) {</span>
+<span class="nc" id="L43">            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();</span>
+<span class="nc" id="L44">            user.setPassword(encoder.encode(user.getPassword()));</span>
+<span class="nc" id="L45">            userRepository.save(user);</span>
+<span class="nc" id="L46">            model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
+<span class="nc" id="L47">            LOG.info(&quot;user created. Id=&quot; + user.getId());</span>
+<span class="nc" id="L48">            return &quot;redirect:/user/list&quot;;</span>
         }
-<span class="nc" id="L43">        return &quot;user/add&quot;;</span>
+<span class="nc" id="L50">        LOG.info(&quot;Error during User creation. User is not created&quot;);</span>
+<span class="nc" id="L51">        return &quot;user/add&quot;;</span>
     }
 
     @GetMapping(&quot;/user/update/{id}&quot;)
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L48">        User user = userRepository.findById(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid user Id:&quot; + id));</span>
-<span class="nc" id="L49">        user.setPassword(&quot;&quot;);</span>
-<span class="nc" id="L50">        model.addAttribute(&quot;user&quot;, user);</span>
-<span class="nc" id="L51">        return &quot;user/update&quot;;</span>
+<span class="nc" id="L56">        User user = userRepository.findById(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid user Id:&quot; + id));</span>
+<span class="nc" id="L57">        user.setPassword(&quot;&quot;);</span>
+<span class="nc" id="L58">        model.addAttribute(&quot;user&quot;, user);</span>
+<span class="nc" id="L59">        return &quot;user/update&quot;;</span>
     }
 
     @PostMapping(&quot;/user/update/{id}&quot;)
     public String updateUser(@PathVariable(&quot;id&quot;) Integer id, @Valid User user,
                              BindingResult result, Model model) {
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (result.hasErrors()) {</span>
-<span class="nc" id="L58">            return &quot;user/update&quot;;</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (result.hasErrors()) {</span>
+<span class="nc" id="L66">        	LOG.info(&quot;Error during update of User (Id=&quot;+ id +&quot;). Not updated&quot;);</span>
+<span class="nc" id="L67">            return &quot;user/update&quot;;</span>
         }
 
-<span class="nc" id="L61">        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();</span>
-<span class="nc" id="L62">        user.setPassword(encoder.encode(user.getPassword()));</span>
-<span class="nc" id="L63">        user.setId(id);</span>
-<span class="nc" id="L64">        userRepository.save(user);</span>
-<span class="nc" id="L65">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
-<span class="nc" id="L66">        return &quot;redirect:/user/list&quot;;</span>
+<span class="nc" id="L70">        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();</span>
+<span class="nc" id="L71">        user.setPassword(encoder.encode(user.getPassword()));</span>
+<span class="nc" id="L72">        user.setId(id);</span>
+<span class="nc" id="L73">        userRepository.save(user);</span>
+<span class="nc" id="L74">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
+<span class="nc" id="L75">        LOG.info(&quot;User (Id=&quot;+ id +&quot;) is updated&quot;);</span>
+<span class="nc" id="L76">        return &quot;redirect:/user/list&quot;;</span>
     }
 
     @GetMapping(&quot;/user/delete/{id}&quot;)
     public String deleteUser(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L71">        User user = userRepository.findById(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid user Id:&quot; + id));</span>
-<span class="nc" id="L72">        userRepository.delete(user);</span>
-<span class="nc" id="L73">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
-<span class="nc" id="L74">        return &quot;redirect:/user/list&quot;;</span>
+<span class="nc" id="L81">        User user = userRepository.findById(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid user Id:&quot; + id));</span>
+<span class="nc" id="L82">        userRepository.delete(user);</span>
+<span class="nc" id="L83">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
+<span class="nc" id="L84">        LOG.info(&quot;User (Id=&quot;+ id +&quot;) is deleted&quot;);</span>
+<span class="nc" id="L85">        return &quot;redirect:/user/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Controller
-<span class="fc" id="L20">public class RuleNameController {</span>
+<span class="fc" id="L22">public class RuleNameController {</span>
+	
+<span class="fc" id="L24">	private static final Logger LOG = LogManager.getLogger(RuleNameController.class);</span>
 	
     @Autowired
     private RuleNameService ruleNameService;
@@ -26,49 +30,54 @@ import javax.validation.Valid;
     @RequestMapping(&quot;/ruleName/list&quot;)
     public String home(Model model)
     {
-<span class="nc" id="L29">    	 List&lt;RuleName&gt; listRuleName = ruleNameService.getAllRuleName();</span>
-<span class="nc" id="L30">         model.addAttribute(&quot;listRuleName&quot;, listRuleName);</span>
-<span class="nc" id="L31">        return &quot;ruleName/list&quot;;</span>
+<span class="nc" id="L33">    	 List&lt;RuleName&gt; listRuleName = ruleNameService.getAllRuleName();</span>
+<span class="nc" id="L34">         model.addAttribute(&quot;listRuleName&quot;, listRuleName);</span>
+<span class="nc" id="L35">        return &quot;ruleName/list&quot;;</span>
     }
 
     @GetMapping(&quot;/ruleName/add&quot;)
     public String addRuleForm(RuleName bid) {
-<span class="nc" id="L36">        return &quot;ruleName/add&quot;;</span>
+<span class="nc" id="L40">        return &quot;ruleName/add&quot;;</span>
     }
 
     @PostMapping(&quot;/ruleName/validate&quot;)
     public String validate(@Valid RuleName ruleName, BindingResult result, Model model) {
-<span class="nc bnc" id="L41" title="All 2 branches missed.">    	if (!result.hasErrors()) {</span>
-<span class="nc" id="L42">            ruleNameService.saveRuleName(ruleName);</span>
-<span class="nc" id="L43">            model.addAttribute(&quot;listRuleName&quot;, ruleNameService.getAllRuleName());</span>
-<span class="nc" id="L44">            return &quot;redirect:/ruleName/list&quot;;</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">    	if (!result.hasErrors()) {</span>
+<span class="nc" id="L46">            ruleNameService.saveRuleName(ruleName);</span>
+<span class="nc" id="L47">            model.addAttribute(&quot;listRuleName&quot;, ruleNameService.getAllRuleName());</span>
+<span class="nc" id="L48">            LOG.info(&quot;RuleName created. Id=&quot; + ruleName.getId());</span>
+<span class="nc" id="L49">            return &quot;redirect:/ruleName/list&quot;;</span>
         }
-<span class="nc" id="L46">        return &quot;ruleName/add&quot;;</span>
+<span class="nc" id="L51">    	LOG.info(&quot;Error during RuleName creation. RuleName is not created&quot;);</span>
+<span class="nc" id="L52">        return &quot;ruleName/add&quot;;</span>
     }
 
     @GetMapping(&quot;/ruleName/update/{id}&quot;)
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L51">    	RuleName ruleName = ruleNameService.getRuleName(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid ruleName Id:&quot; + id));</span>
-<span class="nc" id="L52">        model.addAttribute(&quot;ruleName&quot;, ruleName);</span>
-<span class="nc" id="L53">        return &quot;ruleName/update&quot;;</span>
+<span class="nc" id="L57">    	RuleName ruleName = ruleNameService.getRuleName(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid ruleName Id:&quot; + id));</span>
+<span class="nc" id="L58">        model.addAttribute(&quot;ruleName&quot;, ruleName);</span>
+<span class="nc" id="L59">        return &quot;ruleName/update&quot;;</span>
     }
 
     @PostMapping(&quot;/ruleName/update/{id}&quot;)
     public String updateRuleName(@PathVariable(&quot;id&quot;) Integer id, @Valid RuleName ruleName,
                              BindingResult result, Model model) {
-<span class="nc bnc" id="L59" title="All 2 branches missed.">    	 if (result.hasErrors()) {</span>
-<span class="nc" id="L60">             return &quot;ruleName/update&quot;;</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">    	 if (result.hasErrors()) {</span>
+<span class="nc" id="L66">    		 LOG.info(&quot;Error during update of RuleName (Id=&quot;+ id +&quot;). Not updated&quot;);</span>
+<span class="nc" id="L67">             return &quot;ruleName/update&quot;;</span>
          }
-<span class="nc" id="L62">    	 ruleName.setId(id);</span>
-<span class="nc" id="L63">    	 ruleNameService.saveRuleName(ruleName);</span>
-<span class="nc" id="L64">         model.addAttribute(&quot;listRuleName&quot;, ruleNameService.getAllRuleName());</span>
-<span class="nc" id="L65">        return &quot;redirect:/ruleName/list&quot;;</span>
+<span class="nc" id="L69">    	 ruleName.setId(id);</span>
+<span class="nc" id="L70">    	 ruleNameService.saveRuleName(ruleName);</span>
+<span class="nc" id="L71">         model.addAttribute(&quot;listRuleName&quot;, ruleNameService.getAllRuleName());</span>
+<span class="nc" id="L72">         LOG.info(&quot;RuleName (Id=&quot;+ id +&quot;) is updated&quot;);</span>
+<span class="nc" id="L73">        return &quot;redirect:/ruleName/list&quot;;</span>
     }
 
     @GetMapping(&quot;/ruleName/delete/{id}&quot;)
     public String deleteRuleName(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L70">        ruleNameService.deleteRuleName(id);</span>
-<span class="nc" id="L71">        return &quot;redirect:/ruleName/list&quot;;</span>
+<span class="nc" id="L78">        ruleNameService.deleteRuleName(id);</span>
+<span class="nc" id="L79">        LOG.info(&quot;RuleName (Id=&quot;+ id +&quot;) is deleted&quot;);</span>
+<span class="nc" id="L80">        return &quot;redirect:/ruleName/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

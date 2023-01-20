@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-
 import javax.validation.Valid;
 
-@Controller
-<span class="fc" id="L20">public class CurveController {</span>
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+@Controller
+<span class="fc" id="L22">public class CurveController {</span>
+
+<span class="fc" id="L24">	private static final Logger LOG = LogManager.getLogger(CurveController.class);</span>
+	
 	@Autowired
 	private CurvePointService curvePointService;
 	
@@ -26,49 +30,54 @@ import javax.validation.Valid;
     @RequestMapping(&quot;/curvePoint/list&quot;)
     public String home(Model model)
     {
-<span class="nc" id="L29">    	List&lt;CurvePoint&gt; listCurvePoint = curvePointService.getAllCurvePoint();</span>
-<span class="nc" id="L30">        model.addAttribute(&quot;listCurvePoint&quot;, listCurvePoint);</span>
-<span class="nc" id="L31">        return &quot;curvePoint/list&quot;;</span>
+<span class="nc" id="L33">    	List&lt;CurvePoint&gt; listCurvePoint = curvePointService.getAllCurvePoint();</span>
+<span class="nc" id="L34">        model.addAttribute(&quot;listCurvePoint&quot;, listCurvePoint);</span>
+<span class="nc" id="L35">        return &quot;curvePoint/list&quot;;</span>
     }
 
     @GetMapping(&quot;/curvePoint/add&quot;)
     public String addBidForm(CurvePoint bid) {
-<span class="nc" id="L36">        return &quot;curvePoint/add&quot;;</span>
+<span class="nc" id="L40">        return &quot;curvePoint/add&quot;;</span>
     }
 
     @PostMapping(&quot;/curvePoint/validate&quot;)
     public String validate(@Valid CurvePoint curvePoint, BindingResult result, Model model) {
-<span class="nc bnc" id="L41" title="All 2 branches missed.">    	if (!result.hasErrors()) {</span>
-<span class="nc" id="L42">            curvePointService.saveCurvePoint(curvePoint);</span>
-<span class="nc" id="L43">            model.addAttribute(&quot;listCurvePoint&quot;, curvePointService.getAllCurvePoint());</span>
-<span class="nc" id="L44">            return &quot;redirect:/curvePoint/list&quot;;</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">    	if (!result.hasErrors()) {</span>
+<span class="nc" id="L46">            curvePointService.saveCurvePoint(curvePoint);</span>
+<span class="nc" id="L47">            model.addAttribute(&quot;listCurvePoint&quot;, curvePointService.getAllCurvePoint());</span>
+<span class="nc" id="L48">            LOG.info(&quot;CurvePoint created. Id=&quot; + curvePoint.getId());</span>
+<span class="nc" id="L49">            return &quot;redirect:/curvePoint/list&quot;;</span>
         }
-<span class="nc" id="L46">        return &quot;curvePoint/add&quot;;</span>
+<span class="nc" id="L51">    	LOG.info(&quot;Error during CurvePoint creation. CurvePoint is not created&quot;);</span>
+<span class="nc" id="L52">        return &quot;curvePoint/add&quot;;</span>
     }
 
     @GetMapping(&quot;/curvePoint/update/{id}&quot;)
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L51">    	CurvePoint curvePoint = curvePointService.getCurvePoint(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid curvePoint Id:&quot; + id));</span>
-<span class="nc" id="L52">        model.addAttribute(&quot;curvePoint&quot;, curvePoint);</span>
-<span class="nc" id="L53">        return &quot;curvePoint/update&quot;;</span>
+<span class="nc" id="L57">    	CurvePoint curvePoint = curvePointService.getCurvePoint(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid curvePoint Id:&quot; + id));</span>
+<span class="nc" id="L58">        model.addAttribute(&quot;curvePoint&quot;, curvePoint);</span>
+<span class="nc" id="L59">        return &quot;curvePoint/update&quot;;</span>
     }
 
     @PostMapping(&quot;/curvePoint/update/{id}&quot;)
     public String updateBid(@PathVariable(&quot;id&quot;) Integer id, @Valid CurvePoint curvePoint,
                              BindingResult result, Model model) {
-<span class="nc bnc" id="L59" title="All 2 branches missed.">   	 if (result.hasErrors()) {</span>
-<span class="nc" id="L60">         return &quot;curvePoint/update&quot;;</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">   	 if (result.hasErrors()) {</span>
+<span class="nc" id="L66">   		 LOG.info(&quot;Error during update of CurvePoint (Id=&quot;+ id +&quot;). Not updated&quot;);</span>
+<span class="nc" id="L67">         return &quot;curvePoint/update&quot;;</span>
      }
-<span class="nc" id="L62">   	 curvePoint.setId(id);</span>
-<span class="nc" id="L63">   	curvePointService.saveCurvePoint(curvePoint);</span>
-<span class="nc" id="L64">     model.addAttribute(&quot;listCurvePoint&quot;, curvePointService.getAllCurvePoint());</span>
-<span class="nc" id="L65">        return &quot;redirect:/curvePoint/list&quot;;</span>
+<span class="nc" id="L69">   	 curvePoint.setId(id);</span>
+<span class="nc" id="L70">   	curvePointService.saveCurvePoint(curvePoint);</span>
+<span class="nc" id="L71">     model.addAttribute(&quot;listCurvePoint&quot;, curvePointService.getAllCurvePoint());</span>
+<span class="nc" id="L72">     LOG.info(&quot;CurvePoint (Id=&quot;+ id +&quot;) is updated&quot;);</span>
+<span class="nc" id="L73">        return &quot;redirect:/curvePoint/list&quot;;</span>
     }
 
     @GetMapping(&quot;/curvePoint/delete/{id}&quot;)
     public String deleteBid(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L70">        curvePointService.deleteCurvePoint(id);</span>
-<span class="nc" id="L71">        return &quot;redirect:/curvePoint/list&quot;;</span>
+<span class="nc" id="L78">        curvePointService.deleteCurvePoint(id);</span>
+<span class="nc" id="L79">        LOG.info(&quot;CurvePoint (Id=&quot;+ id +&quot;) is deleted&quot;);</span>
+<span class="nc" id="L80">        return &quot;redirect:/curvePoint/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

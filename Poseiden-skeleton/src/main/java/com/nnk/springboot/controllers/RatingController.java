@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-
 import javax.validation.Valid;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Controller
 public class RatingController {
+	
+	private static final Logger LOG = LogManager.getLogger(RatingController.class);
 	
     @Autowired
     private RatingService ratingService;
@@ -41,8 +45,10 @@ public class RatingController {
     	if (!result.hasErrors()) {
             ratingService.saveRating(rating);
             model.addAttribute("listRating", ratingService.getAllRating());
+            LOG.info("Rating created. Id=" + rating.getId());
             return "redirect:/rating/list";
         }
+    	LOG.info("Error during Rating creation. Rating is not created");
         return "rating/add";
     }
 
@@ -57,17 +63,20 @@ public class RatingController {
     public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
                              BindingResult result, Model model) {
     	 if (result.hasErrors()) {
+    		 LOG.info("Error during update of Rating (Id="+ id +"). Not updated");
              return "rating/update";
          }
     	rating.setId(id);
     	ratingService.saveRating(rating);
         model.addAttribute("listRating", ratingService.getAllRating());
+        LOG.info("Rating (Id="+ id +") is updated");
         return "redirect:/rating/list";
     }
 
     @GetMapping("/rating/delete/{id}")
     public String deleteRating(@PathVariable("id") Integer id, Model model) {
        ratingService.deleteRating(id);
+       LOG.info("Rating (Id="+ id +") is deleted");
         return "redirect:/rating/list";
     }
 }

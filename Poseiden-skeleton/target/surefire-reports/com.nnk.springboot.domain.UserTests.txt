@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.nnk.springboot.domain.UserTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.05 s <<< FAILURE! - in com.nnk.springboot.domain.UserTests
+userTest(com.nnk.springboot.domain.UserTests)  Time elapsed: 0.028 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[username]> but was:<[account]>
+	at com.nnk.springboot.domain.UserTests.userTest(UserTests.java:22)
+

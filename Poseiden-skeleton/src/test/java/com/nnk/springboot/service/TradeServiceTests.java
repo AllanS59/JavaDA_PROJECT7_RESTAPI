@@ -41,7 +41,7 @@ public class TradeServiceTests {
 
 		// Delete
 		Integer id = trade.getTradeId();
-		tradeService.deleteTrade(0);;
+		tradeService.deleteTrade(0);
 		Optional<Trade> tradeList = tradeService.getTrade(id);
 		Assert.assertFalse(tradeList.isPresent());
 	}

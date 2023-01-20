@@ -14,8 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Controller
 public class UserController {
+	
+	private static final Logger LOG = LogManager.getLogger(UserController.class);
+	
     @Autowired
     private UserRepository userRepository;
 
@@ -38,8 +44,10 @@ public class UserController {
             user.setPassword(encoder.encode(user.getPassword()));
             userRepository.save(user);
             model.addAttribute("users", userRepository.findAll());
+            LOG.info("user created. Id=" + user.getId());
             return "redirect:/user/list";
         }
+        LOG.info("Error during User creation. User is not created");
         return "user/add";
     }
 
@@ -55,6 +63,7 @@ public class UserController {
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
+        	LOG.info("Error during update of User (Id="+ id +"). Not updated");
             return "user/update";
         }
 
@@ -63,6 +72,7 @@ public class UserController {
         user.setId(id);
         userRepository.save(user);
         model.addAttribute("users", userRepository.findAll());
+        LOG.info("User (Id="+ id +") is updated");
         return "redirect:/user/list";
     }
 
@@ -71,6 +81,7 @@ public class UserController {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         userRepository.delete(user);
         model.addAttribute("users", userRepository.findAll());
+        LOG.info("User (Id="+ id +") is deleted");
         return "redirect:/user/list";
     }
 }
