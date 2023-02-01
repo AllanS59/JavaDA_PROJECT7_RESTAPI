@@ -1,7 +1,5 @@
 package com.nnk.springboot.controller;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -25,14 +23,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.nnk.springboot.domain.BidList;
-import com.nnk.springboot.domain.CurvePoint;
-import com.nnk.springboot.repositories.CurvePointRepository;
+import com.nnk.springboot.domain.RuleName;
+import com.nnk.springboot.repositories.RuleNameRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CurveControllerTests {
+public class RuleNameControllerTests {
 
 	@Autowired
     private WebApplicationContext webapp;
@@ -40,7 +37,7 @@ public class CurveControllerTests {
     private MockMvc mockMvc;
 	
 	@Autowired
-	public CurvePointRepository curvePointRepository;
+	public RuleNameRepository ruleNameRepository;
 	
 	private MockHttpSession session;
 	
@@ -58,44 +55,43 @@ public class CurveControllerTests {
 	 // LIST PAGE (GET)
     //--------------
 	@Test
-	public void testCurvePointList() throws Exception {
+	public void testRuleNameList() throws Exception {
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/curvePoint/list").session(session);
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/ruleName/list").session(session);
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
 		.andExpect(status().isOk())
-		.andExpect(view().name("curvePoint/list"));
+		.andExpect(view().name("ruleName/list"));
 	}
 	
 	// ADD PAGE (GET)
     //--------------
 	@Test
-	public void testCurvePointAdd() throws Exception {
+	public void testRuleNameAdd() throws Exception {
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/curvePoint/add").session(session);
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/ruleName/add").session(session);
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
 		.andExpect(status().isOk())
-		.andExpect(view().name("curvePoint/add"));
+		.andExpect(view().name("ruleName/add"));
 	}
 	
 	// ADD PAGE (POST)
 	//----------------
 	@Test
-	public void testCurveValidate() throws Exception {
+	public void testRuleNameValidate() throws Exception {
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.post("/curvePoint/validate").session(session)
-					.param("curvePoint.CurveId","5")
-					.param("curvePoint.term","term")
-					.param("curvePoint.value","4");
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.post("/ruleName/validate").session(session)
+					.param("ruleName.name","name")
+					.param("ruleName.description","description")
+					.param("ruleName.json","json")
+					.param("ruleName.template","template");
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isFound());
-		//.andExpect(view().name("curvePoint/list"));
-		;
+		.andExpect(status().isOk())	;
 		
 	}
 	
@@ -103,42 +99,43 @@ public class CurveControllerTests {
 	// UPDATE PAGE (GET)
     //--------------
 	@Test
-	public void testBidListUpdate() throws Exception {
+	public void testRuleNameUpdate() throws Exception {
 		
-		CurvePoint curvePoint = new CurvePoint(10, 10d, 30d);;
-		curvePoint = curvePointRepository.save(curvePoint);
-		Integer id = curvePoint.getId();
+		RuleName rule = new RuleName("Rule Name", "Description", "Json", "Template", "SQL", "SQL Part");
+		rule = ruleNameRepository.save(rule);
+		Integer id = rule.getId();
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/curvePoint/update/"+id).session(session);
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/ruleName/update/"+id).session(session);
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
 		.andExpect(status().isOk())
-		.andExpect(view().name("curvePoint/update"));
+		.andExpect(view().name("ruleName/update"));
 		
-		curvePointRepository.deleteById(id);
+		ruleNameRepository.deleteById(id);
 		
 	}
 	
 	// UPDATE PAGE (POST)
+		//----------------
 	@Test
-	public void testBidListUpdatePost() throws Exception {
+	public void testRuleNameUpdatePost() throws Exception {
 		
-		CurvePoint curvePoint = new CurvePoint(10, 10d, 30d);
-		curvePoint = curvePointRepository.save(curvePoint);
-		Integer id = curvePoint.getId();
+		RuleName rule = new RuleName("Rule Name", "Description", "Json", "Template", "SQL", "SQL Part");
+		rule = ruleNameRepository.save(rule);
+		Integer id = rule.getId();
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.post("/curvePoint/update/"+id).session(session)
-				.param("curvePoint.CurveId","5")
-				.param("curvePoint.term","6")
-				.param("curvePoint.value","4");
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.post("/ruleName/update/"+id).session(session)
+				.param("ruleName.name","name")
+				.param("ruleName.description","description")
+				.param("ruleName.json","json")
+				.param("ruleName.template","template");
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isFound());
-		//.andExpect(view().name("curvePoint/list"));
+		.andExpect(status().isOk());
 		
-		curvePointRepository.deleteById(id);
+		ruleNameRepository.deleteById(id);
 		
 	}
 	
@@ -146,20 +143,18 @@ public class CurveControllerTests {
 	// DELETE
     //--------------
 	@Test
-	public void testBidListDelete() throws Exception {
+	public void testRuleNameDelete() throws Exception {
 		
-		CurvePoint curvePoint = new CurvePoint(10, 10d, 30d);
-		curvePoint = curvePointRepository.save(curvePoint);
-		Integer id = curvePoint.getId();
+		RuleName rule = new RuleName("Rule Name", "Description", "Json", "Template", "SQL", "SQL Part");
+		rule = ruleNameRepository.save(rule);
+		Integer id = rule.getId();
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/curvePoint/delete/"+id).session(session);
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/ruleName/delete/"+id).session(session);
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print());
 		
-		Optional<CurvePoint> curvePointList = curvePointRepository.findById(id);
-		Assert.assertFalse(curvePointList.isPresent());
+		Optional<RuleName> ruleNameList = ruleNameRepository.findById(id);
+		Assert.assertFalse(ruleNameList.isPresent());
 	}
-
-	
 }

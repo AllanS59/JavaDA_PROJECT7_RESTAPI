@@ -19,7 +19,7 @@ public class UserTests {
 	    user.setFullname("fullname");
 	    user.setRole("role");
 	    
-	    Assert.assertEquals(user.getUsername(), "account");
+	    Assert.assertEquals(user.getUsername(), "username");
 	    Assert.assertEquals(user.getPassword(), "password");
 	    Assert.assertEquals(user.getFullname(), "fullname");
 	    Assert.assertEquals(user.getRole(), "role");

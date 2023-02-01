@@ -1,7 +1,5 @@
 package com.nnk.springboot.controller;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -25,14 +23,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.nnk.springboot.domain.BidList;
-import com.nnk.springboot.domain.CurvePoint;
-import com.nnk.springboot.repositories.CurvePointRepository;
+import com.nnk.springboot.domain.User;
+import com.nnk.springboot.repositories.UserRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CurveControllerTests {
+public class UserControllerTests {
 
 	@Autowired
     private WebApplicationContext webapp;
@@ -40,7 +37,7 @@ public class CurveControllerTests {
     private MockMvc mockMvc;
 	
 	@Autowired
-	public CurvePointRepository curvePointRepository;
+	public UserRepository userRepository;
 	
 	private MockHttpSession session;
 	
@@ -58,43 +55,43 @@ public class CurveControllerTests {
 	 // LIST PAGE (GET)
     //--------------
 	@Test
-	public void testCurvePointList() throws Exception {
+	public void testUserList() throws Exception {
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/curvePoint/list").session(session);
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/user/list").session(session);
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
 		.andExpect(status().isOk())
-		.andExpect(view().name("curvePoint/list"));
+		.andExpect(view().name("user/list"));
 	}
 	
 	// ADD PAGE (GET)
     //--------------
 	@Test
-	public void testCurvePointAdd() throws Exception {
+	public void testUserAdd() throws Exception {
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/curvePoint/add").session(session);
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/user/add").session(session);
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
 		.andExpect(status().isOk())
-		.andExpect(view().name("curvePoint/add"));
+		.andExpect(view().name("user/add"));
 	}
 	
 	// ADD PAGE (POST)
 	//----------------
 	@Test
-	public void testCurveValidate() throws Exception {
+	public void testUserValidate() throws Exception {
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.post("/curvePoint/validate").session(session)
-					.param("curvePoint.CurveId","5")
-					.param("curvePoint.term","term")
-					.param("curvePoint.value","4");
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.post("/user/validate").session(session)
+					.param("user.fullname","fullname")
+					.param("user.username","username")
+					.param("user.password","Password123#")
+					.param("user.role","USER#");
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isFound());
-		//.andExpect(view().name("curvePoint/list"));
+		.andExpect(status().isOk())
 		;
 		
 	}
@@ -103,42 +100,43 @@ public class CurveControllerTests {
 	// UPDATE PAGE (GET)
     //--------------
 	@Test
-	public void testBidListUpdate() throws Exception {
+	public void testUserUpdate() throws Exception {
 		
-		CurvePoint curvePoint = new CurvePoint(10, 10d, 30d);;
-		curvePoint = curvePointRepository.save(curvePoint);
-		Integer id = curvePoint.getId();
+		User user = new User("Username", "Password", "FullName", "USER");
+		user = userRepository.save(user);
+		Integer id = user.getId();
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/curvePoint/update/"+id).session(session);
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/user/update/"+id).session(session);
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
 		.andExpect(status().isOk())
-		.andExpect(view().name("curvePoint/update"));
+		.andExpect(view().name("user/update"));
 		
-		curvePointRepository.deleteById(id);
+		userRepository.deleteById(id);
 		
 	}
 	
 	// UPDATE PAGE (POST)
+		//----------------
 	@Test
-	public void testBidListUpdatePost() throws Exception {
+	public void testUserUpdatePost() throws Exception {
 		
-		CurvePoint curvePoint = new CurvePoint(10, 10d, 30d);
-		curvePoint = curvePointRepository.save(curvePoint);
-		Integer id = curvePoint.getId();
+		User user = new User("Username", "Password", "FullName", "USER");
+		user = userRepository.save(user);
+		Integer id = user.getId();
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.post("/curvePoint/update/"+id).session(session)
-				.param("curvePoint.CurveId","5")
-				.param("curvePoint.term","6")
-				.param("curvePoint.value","4");
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.post("/user/update/"+id).session(session)
+				.param("user.fullname","fullname")
+				.param("user.username","username")
+				.param("user.password","Password123#")
+				.param("user.role","USER#");
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isFound());
-		//.andExpect(view().name("curvePoint/list"));
+		.andExpect(status().isOk());
 		
-		curvePointRepository.deleteById(id);
+		userRepository.deleteById(id);
 		
 	}
 	
@@ -146,20 +144,18 @@ public class CurveControllerTests {
 	// DELETE
     //--------------
 	@Test
-	public void testBidListDelete() throws Exception {
+	public void testUserDelete() throws Exception {
 		
-		CurvePoint curvePoint = new CurvePoint(10, 10d, 30d);
-		curvePoint = curvePointRepository.save(curvePoint);
-		Integer id = curvePoint.getId();
+		User user = new User("Username", "Password", "FullName", "USER");
+		user = userRepository.save(user);
+		Integer id = user.getId();
 		
-		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/curvePoint/delete/"+id).session(session);
+		RequestBuilder echoUserReq = MockMvcRequestBuilders.get("/user/delete/"+id).session(session);
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print());
 		
-		Optional<CurvePoint> curvePointList = curvePointRepository.findById(id);
-		Assert.assertFalse(curvePointList.isPresent());
+		Optional<User> userList = userRepository.findById(id);
+		Assert.assertFalse(userList.isPresent());
 	}
-
-	
 }

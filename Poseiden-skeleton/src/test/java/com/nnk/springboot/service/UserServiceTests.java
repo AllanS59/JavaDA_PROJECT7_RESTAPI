@@ -22,7 +22,7 @@ public class UserServiceTests {
 	private UserService userService;
  
 	@Test
-	public void tradeTest() {
+	public void userServiceTest() {
 		User user = new User("Username", "Password", "FullName", "USER");
 
 		// Save
@@ -46,4 +46,17 @@ public class UserServiceTests {
 		Assert.assertFalse(userList.isPresent());
 	}
 	
+	@Test
+	public void checkPasswordValidityTest() {
+		
+		// Valid Passwords shall return 'true'
+		Assert.assertTrue(userService.checkPasswordValidity("ValidPass123@"));
+		
+		// Unvalid passwords shall return 'false'
+		Assert.assertFalse(userService.checkPasswordValidity("nouppercase123@"));
+		Assert.assertFalse(userService.checkPasswordValidity("NOLOWERCASE123@"));
+		Assert.assertFalse(userService.checkPasswordValidity("NoNumeric@"));
+		Assert.assertFalse(userService.checkPasswordValidity("NoSpecialCar123"));
+		Assert.assertFalse(userService.checkPasswordValidity("No8Car@"));
+	}
 }

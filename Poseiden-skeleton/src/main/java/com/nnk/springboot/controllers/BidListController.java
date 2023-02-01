@@ -63,7 +63,7 @@ private BidListService bidListService;
                              BindingResult result, Model model) {
     	 if (result.hasErrors()) {
     		 LOG.info("Error during update of BidList (Id="+ id +"). Not updated");
-             return "bidlist/update";
+             return "bidList/update";
          }
     	 bidList.setBidListId(id);
     	 bidListService.saveBidList(bidList);
