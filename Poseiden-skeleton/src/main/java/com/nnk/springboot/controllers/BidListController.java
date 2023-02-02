@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -47,7 +48,8 @@ private BidListService bidListService;
             LOG.info("BidList created. Id=" + bid.getBidListId());
             return "redirect:/bidList/list";
         }
-    	LOG.info("Error during BidList creation. BidList is not created");
+    	LOG.log( Level.INFO, "Hello World with Log4J 2" );
+    	//LOG.info("Error during BidList creation. BidList is not created");
         return "bidList/add";
     }
 

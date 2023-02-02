@@ -1,0 +1,95 @@
+2023-02-02 11:26:29.435  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : Starting Application on LAPTOP-O62TP6VR with PID 622952 (started by dspar in C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton)
+2023-02-02 11:26:29.473 DEBUG 622952 --- [restartedMain] com.nnk.springboot.Application           : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2023-02-02 11:26:29.476  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : No active profile set, falling back to default profiles: default
+2023-02-02 11:27:04.428  WARN 622952 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 11:27:08.320  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : Started Application in 39.928 seconds (JVM running for 41.197)
+2023-02-02 11:30:13.510  INFO 622952 --- [http-nio-8080-exec-3] c.n.s.controllers.BidListController      : BidList created. Id=82
+2023-02-02 11:48:14.145  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : Starting Application on LAPTOP-O62TP6VR with PID 622952 (started by dspar in C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton)
+2023-02-02 11:48:14.146 DEBUG 622952 --- [restartedMain] com.nnk.springboot.Application           : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2023-02-02 11:48:14.146  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : No active profile set, falling back to default profiles: default
+2023-02-02 11:48:19.396  WARN 622952 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 11:48:19.727  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : Started Application in 5.802 seconds (JVM running for 1312.603)
+2023-02-02 11:48:30.809  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : Starting Application on LAPTOP-O62TP6VR with PID 622952 (started by dspar in C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton)
+2023-02-02 11:48:30.810 DEBUG 622952 --- [restartedMain] com.nnk.springboot.Application           : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2023-02-02 11:48:30.861  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : No active profile set, falling back to default profiles: default
+2023-02-02 11:48:34.650  WARN 622952 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 11:48:34.850  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : Started Application in 4.109 seconds (JVM running for 1327.727)
+2023-02-02 11:48:42.871  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : Starting Application on LAPTOP-O62TP6VR with PID 622952 (started by dspar in C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton)
+2023-02-02 11:48:42.872 DEBUG 622952 --- [restartedMain] com.nnk.springboot.Application           : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2023-02-02 11:48:42.872  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : No active profile set, falling back to default profiles: default
+2023-02-02 11:48:45.432  WARN 622952 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 11:48:45.594  INFO 622952 --- [restartedMain] com.nnk.springboot.Application           : Started Application in 2.789 seconds (JVM running for 1338.471)
+2023-02-02 11:49:37.436  INFO 498728 --- [main] c.nnk.springboot.BidListRepositoryTests  : Starting BidListRepositoryTests on LAPTOP-O62TP6VR with PID 498728 (started by dspar in C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton)
+2023-02-02 11:49:37.441 DEBUG 498728 --- [main] c.nnk.springboot.BidListRepositoryTests  : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2023-02-02 11:49:37.446  INFO 498728 --- [main] c.nnk.springboot.BidListRepositoryTests  : No active profile set, falling back to default profiles: default
+2023-02-02 11:49:55.921  WARN 498728 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 11:49:57.866  INFO 498728 --- [main] c.nnk.springboot.BidListRepositoryTests  : Started BidListRepositoryTests in 22.183 seconds (JVM running for 26.838)
+2023-02-02 11:50:01.353  INFO 498728 --- [main] c.n.s.controller.BidListControllerTests  : Starting BidListControllerTests on LAPTOP-O62TP6VR with PID 498728 (started by dspar in C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton)
+2023-02-02 11:50:01.409 DEBUG 498728 --- [main] c.n.s.controller.BidListControllerTests  : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2023-02-02 11:50:01.412  INFO 498728 --- [main] c.n.s.controller.BidListControllerTests  : No active profile set, falling back to default profiles: default
+2023-02-02 11:50:06.942  WARN 498728 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 11:50:07.983  INFO 498728 --- [main] c.n.s.controller.BidListControllerTests  : Started BidListControllerTests in 6.899 seconds (JVM running for 36.956)
+2023-02-02 11:50:08.302  INFO 498728 --- [main] c.n.s.controllers.BidListController      : BidList (Id=84) is deleted
+2023-02-02 11:50:11.886  INFO 498728 --- [main] c.n.s.controllers.BidListController      : Hello World with Log4J 2
+2023-02-02 11:50:12.156  INFO 498728 --- [main] c.n.s.controllers.BidListController      : Error during update of BidList (Id=86). Not updated
+2023-02-02 11:50:12.947  INFO 498728 --- [main] c.n.s.controllers.CurveController        : CurvePoint (Id=87) is deleted
+2023-02-02 11:50:13.462  INFO 498728 --- [main] c.n.s.controllers.CurveController        : CurvePoint (Id=89) is updated
+2023-02-02 11:50:13.616  INFO 498728 --- [main] c.n.s.controllers.CurveController        : CurvePoint created. Id=90
+2023-02-02 11:50:15.181  INFO 498728 --- [main] c.n.s.controllers.RatingController       : Rating created. Id=91
+2023-02-02 11:50:15.355  INFO 498728 --- [main] c.n.s.controllers.RatingController       : Rating (Id=92) is deleted
+2023-02-02 11:50:15.524  INFO 498728 --- [main] c.n.s.controllers.RatingController       : Rating (Id=93) is updated
+2023-02-02 11:50:16.012  INFO 498728 --- [main] c.n.s.controllers.RuleNameController     : RuleName created. Id=96
+2023-02-02 11:50:16.255  INFO 498728 --- [main] c.n.s.controllers.RuleNameController     : RuleName (Id=97) is updated
+2023-02-02 11:50:16.324  INFO 498728 --- [main] c.n.s.controllers.RuleNameController     : RuleName (Id=98) is deleted
+2023-02-02 11:50:16.455  INFO 498728 --- [main] c.n.s.controllers.TradeController        : Error during update of Trade (Id=99). Not updated
+2023-02-02 11:50:16.513  INFO 498728 --- [main] c.n.s.controllers.TradeController        : Error during Trade creation. Trade is not created
+2023-02-02 11:50:16.622  INFO 498728 --- [main] c.n.s.controllers.TradeController        : Trade (Id=100) is deleted
+2023-02-02 11:50:16.822  INFO 498728 --- [main] c.n.s.controllers.UserController         : Error during User creation. User is not created
+2023-02-02 11:50:16.907  INFO 498728 --- [main] c.n.s.controllers.UserController         : Error during update of User (Id=15). Not updated
+2023-02-02 11:50:17.038  INFO 498728 --- [main] c.n.s.controllers.UserController         : User (Id=16) is deleted
+2023-02-02 12:02:40.624  INFO 637084 --- [main] c.nnk.springboot.BidListRepositoryTests  : Starting BidListRepositoryTests on LAPTOP-O62TP6VR with PID 637084 (started by dspar in C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton)
+2023-02-02 12:02:40.626 DEBUG 637084 --- [main] c.nnk.springboot.BidListRepositoryTests  : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2023-02-02 12:02:40.632  INFO 637084 --- [main] c.nnk.springboot.BidListRepositoryTests  : No active profile set, falling back to default profiles: default
+2023-02-02 12:03:01.564  WARN 637084 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 12:03:03.122  INFO 637084 --- [main] c.nnk.springboot.BidListRepositoryTests  : Started BidListRepositoryTests in 24.063 seconds (JVM running for 28.75)
+2023-02-02 12:03:05.164  INFO 637084 --- [main] c.n.s.controller.BidListControllerTests  : Starting BidListControllerTests on LAPTOP-O62TP6VR with PID 637084 (started by dspar in C:\Users\dspar\Documents\Formations\OPENCLASSROOMS\CHAPITRE 7\code\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton)
+2023-02-02 12:03:05.165 DEBUG 637084 --- [main] c.n.s.controller.BidListControllerTests  : Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2023-02-02 12:03:05.167  INFO 637084 --- [main] c.n.s.controller.BidListControllerTests  : No active profile set, falling back to default profiles: default
+2023-02-02 12:03:09.925  WARN 637084 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-02 12:03:11.480  INFO 637084 --- [main] c.n.s.controller.BidListControllerTests  : Started BidListControllerTests in 6.501 seconds (JVM running for 37.108)
+2023-02-02 12:03:11.899  INFO 637084 --- [main] c.n.s.controllers.BidListController      : BidList (Id=111) is deleted
+2023-02-02 12:03:13.112  INFO 637084 --- [main] c.n.s.controllers.BidListController      : Hello World with Log4J 2
+2023-02-02 12:03:13.233  INFO 637084 --- [main] c.n.s.controllers.BidListController      : Error during update of BidList (Id=113). Not updated
+2023-02-02 12:03:13.553  INFO 637084 --- [main] c.n.s.controllers.CurveController        : CurvePoint (Id=114) is deleted
+2023-02-02 12:03:13.825  INFO 637084 --- [main] c.n.s.controllers.CurveController        : CurvePoint (Id=116) is updated
+2023-02-02 12:03:13.884  INFO 637084 --- [main] c.n.s.controllers.CurveController        : CurvePoint created. Id=117
+2023-02-02 12:03:15.424  INFO 637084 --- [main] c.n.s.controllers.RatingController       : Rating created. Id=118
+2023-02-02 12:03:15.488  INFO 637084 --- [main] c.n.s.controllers.RatingController       : Rating (Id=119) is deleted
+2023-02-02 12:03:15.557  INFO 637084 --- [main] c.n.s.controllers.RatingController       : Rating (Id=120) is updated
+2023-02-02 12:03:15.885  INFO 637084 --- [main] c.n.s.controllers.RuleNameController     : RuleName created. Id=123
+2023-02-02 12:03:16.114  INFO 637084 --- [main] c.n.s.controllers.RuleNameController     : RuleName (Id=124) is updated
+2023-02-02 12:03:16.180  INFO 637084 --- [main] c.n.s.controllers.RuleNameController     : RuleName (Id=125) is deleted
+2023-02-02 12:03:16.255  INFO 637084 --- [main] c.n.s.controllers.TradeController        : Error during update of Trade (Id=126). Not updated
+2023-02-02 12:03:16.302  INFO 637084 --- [main] c.n.s.controllers.TradeController        : Error during Trade creation. Trade is not created
+2023-02-02 12:03:16.388  INFO 637084 --- [main] c.n.s.controllers.TradeController        : Trade (Id=127) is deleted
+2023-02-02 12:03:16.578  INFO 637084 --- [main] c.n.s.controllers.UserController         : Error during User creation. User is not created
+2023-02-02 12:03:16.667  INFO 637084 --- [main] c.n.s.controllers.UserController         : Error during update of User (Id=19). Not updated
+2023-02-02 12:03:16.778  INFO 637084 --- [main] c.n.s.controllers.UserController         : User (Id=20) is deleted
+2023-02-02 12:03:17.006  WARN 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1264, SQLState: 22001
+2023-02-02 12:03:17.007 ERROR 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Out of range value for column 'Id' at row 1
+2023-02-02 12:03:17.009 ERROR 637084 --- [main] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.DataException: could not execute statement]
+2023-02-02 12:03:17.533  WARN 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1264, SQLState: 22001
+2023-02-02 12:03:17.534 ERROR 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Out of range value for column 'Id' at row 1
+2023-02-02 12:03:17.535 ERROR 637084 --- [main] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.DataException: could not execute statement]
+2023-02-02 12:03:17.569  WARN 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1264, SQLState: 22001
+2023-02-02 12:03:17.569 ERROR 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Out of range value for column 'Id' at row 1
+2023-02-02 12:03:17.570 ERROR 637084 --- [main] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.DataException: could not execute statement]
+2023-02-02 12:03:17.796  WARN 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1264, SQLState: 22001
+2023-02-02 12:03:17.796 ERROR 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Out of range value for column 'Id' at row 1
+2023-02-02 12:03:17.797 ERROR 637084 --- [main] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.DataException: could not execute statement]
+2023-02-02 12:03:17.841  WARN 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1264, SQLState: 22001
+2023-02-02 12:03:17.841 ERROR 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Out of range value for column 'Id' at row 1
+2023-02-02 12:03:17.842 ERROR 637084 --- [main] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.DataException: could not execute statement]
+2023-02-02 12:03:17.898  WARN 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1264, SQLState: 22001
+2023-02-02 12:03:17.898 ERROR 637084 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Out of range value for column 'Id' at row 1
+2023-02-02 12:03:17.900 ERROR 637084 --- [main] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.DataException: could not execute statement]

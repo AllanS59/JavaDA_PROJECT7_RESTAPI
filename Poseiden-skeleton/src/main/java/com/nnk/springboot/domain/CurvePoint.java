@@ -44,10 +44,10 @@ public class CurvePoint {
 		CurveId = curveId;
 	}
 	public Timestamp getAsOfDate() {
-		return asOfDate;
+		return new Timestamp(asOfDate.getTime());
 	}
 	public void setAsOfDate(Timestamp asOfDate) {
-		this.asOfDate = asOfDate;
+		this.asOfDate = new Timestamp(asOfDate.getTime());
 	}
 	public double getTerm() {
 		return term;
@@ -62,10 +62,10 @@ public class CurvePoint {
 		this.value = value;
 	}
 	public Timestamp getCreationDate() {
-		return creationDate;
+		return new Timestamp(creationDate.getTime());
 	}
 	public void setCreationDate(Timestamp creationDate) {
-		this.creationDate = creationDate;
+		this.creationDate = new Timestamp(creationDate.getTime());
 	}
 	 
 }

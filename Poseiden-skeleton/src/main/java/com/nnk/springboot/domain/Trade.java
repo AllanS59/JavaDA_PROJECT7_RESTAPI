@@ -86,10 +86,10 @@ public class Trade {
 		this.sellPrice = sellPrice;
 	}
 	public Timestamp getTradeDate() {
-		return tradeDate;
+		return new Timestamp(tradeDate.getTime());
 	}
 	public void setTradeDate(Timestamp tradeDate) {
-		this.tradeDate = tradeDate;
+		this.tradeDate = new Timestamp(tradeDate.getTime());
 	}
 	public String getSecurity() {
 		return security;
@@ -122,10 +122,10 @@ public class Trade {
 		this.creationName = creationName;
 	}
 	public Timestamp getCreationDate() {
-		return creationDate;
+		return new Timestamp(creationDate.getTime());
 	}
 	public void setCreationDate(Timestamp creationDate) {
-		this.creationDate = creationDate;
+		this.creationDate = new Timestamp(creationDate.getTime());
 	}
 	public String getRevisionName() {
 		return revisionName;
@@ -134,10 +134,10 @@ public class Trade {
 		this.revisionName = revisionName;
 	}
 	public Timestamp getRevisionDate() {
-		return revisionDate;
+		return new Timestamp(revisionDate.getTime());
 	}
 	public void setRevisionDate(Timestamp revisionDate) {
-		this.revisionDate = revisionDate;
+		this.revisionDate = new Timestamp(revisionDate.getTime());
 	}
 	public String getDealName() {
 		return dealName;

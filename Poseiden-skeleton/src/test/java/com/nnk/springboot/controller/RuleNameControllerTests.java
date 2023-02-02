@@ -91,7 +91,7 @@ public class RuleNameControllerTests {
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isOk())	;
+		.andExpect(status().isFound());
 		
 	}
 	
@@ -133,7 +133,7 @@ public class RuleNameControllerTests {
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isOk());
+		.andExpect(status().isFound());
 		
 		ruleNameRepository.deleteById(id);
 		

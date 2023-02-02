@@ -90,7 +90,7 @@ public class RatingControllerTests {
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isOk())
+		.andExpect(status().isFound());
 		;
 		
 	}
@@ -132,7 +132,7 @@ public class RatingControllerTests {
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isOk());
+		.andExpect(status().isFound());
 		
 		ratingRepository.deleteById(id);
 		

@@ -98,10 +98,10 @@ public class BidList {
 		this.benchmark = benchmark;
 	}
 	public Timestamp getBidListDate() {
-		return bidListDate;
+		return new Timestamp(bidListDate.getTime());
 	}
 	public void setBidListDate(Timestamp bidListDate) {
-		this.bidListDate = bidListDate;
+		this.bidListDate = new Timestamp(bidListDate.getTime());
 	}
 	public String getCommentary() {
 		return commentary;
@@ -140,10 +140,10 @@ public class BidList {
 		this.creationName = creationName;
 	}
 	public Timestamp getCreationDate() {
-		return creationDate;
+		return new Timestamp(creationDate.getTime());
 	}
 	public void setCreationDate(Timestamp creationDate) {
-		this.creationDate = creationDate;
+		this.creationDate = new Timestamp(creationDate.getTime());
 	}
 	public String getRevisionName() {
 		return revisionName;
@@ -152,10 +152,10 @@ public class BidList {
 		this.revisionName = revisionName;
 	}
 	public Timestamp getRevisionDate() {
-		return revisionDate;
+		return new Timestamp(revisionDate.getTime());
 	}
 	public void setRevisionDate(Timestamp revisionDate) {
-		this.revisionDate = revisionDate;
+		this.revisionDate = new Timestamp(revisionDate.getTime());
 	}
 	public String getDealName() {
 		return dealName;

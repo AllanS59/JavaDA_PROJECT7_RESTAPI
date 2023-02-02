@@ -95,7 +95,8 @@ public class BidListControllerTests {
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isOk())	;
+		.andExpect(status().isOk())
+		;
 		
 	}
 	
@@ -137,7 +138,8 @@ public class BidListControllerTests {
 		
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
-		.andExpect(status().isOk())	;
+		.andExpect(status().isOk())
+		;
 		
 	}
 	
