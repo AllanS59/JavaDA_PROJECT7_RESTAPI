@@ -1,12 +1,8 @@
 package com.nnk.springboot.controller;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.junit.Assert;
@@ -49,6 +45,7 @@ public class BidListControllerTests {
     public void setup() throws Exception{
         this.mockMvc = MockMvcBuilders.webAppContextSetup(webapp).build();
         
+        //Mock a session with a valid user
         ResultActions auth =this.mockMvc.perform(MockMvcRequestBuilders.post("/login/authenticate")
                 .param("admin", "admin"));
 		MvcResult result = auth.andReturn();

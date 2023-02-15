@@ -45,6 +45,7 @@ public class UserControllerTests {
     public void setup() throws Exception{
         this.mockMvc = MockMvcBuilders.webAppContextSetup(webapp).build();
         
+      //Mock a session with a valid user
         ResultActions auth =this.mockMvc.perform(MockMvcRequestBuilders.post("/login/authenticate")
                 .param("admin", "admin"));
 		MvcResult result = auth.andReturn();

@@ -42,12 +42,14 @@ public class TradeController {
 
     @PostMapping("/trade/validate")
     public String validate(@Valid Trade trade, BindingResult result, Model model) {
+    	//If no errors in data provided by user, save data and go back to 'list' page
     	if (!result.hasErrors()) {
             tradeService.saveTrade(trade);
             model.addAttribute("listTrade", tradeService.getAllTrade());
             LOG.info("Trade created. Id=" + trade.getTradeId());
             return "redirect:/trade/list";
         }
+    	//else stay on the current page
     	LOG.info("Error during Trade creation. Trade is not created");
         return "trade/add";
     }
@@ -62,10 +64,12 @@ public class TradeController {
     @PostMapping("/trade/update/{id}")
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
                              BindingResult result, Model model) {
+    	// If errors in data provided by user, stay on current page
     	 if (result.hasErrors()) {
     		 LOG.info("Error during update of Trade (Id="+ id +"). Not updated");
              return "trade/update";
          }
+    	// If no error, save data into database and go back to 'List' page
     	 trade.setTradeId(id);
     	 tradeService.saveTrade(trade);
          model.addAttribute("listTrade", tradeService.getAllTrade());

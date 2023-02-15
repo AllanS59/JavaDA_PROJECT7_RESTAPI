@@ -18,29 +18,55 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	
+	/**
+	 * Get a User object from database by ID
+	 * @param Id the Id of the object to find
+	 * @return Optional<User> the user with correct Id, if any.
+	 */
 	public Optional<User> getUserById (final int Id) {
 		return userRepository.findById(Id);
 	}
 	
+	/**
+	 * Get a User object from database by username
+	 * @param username the username of the user to find
+	 * @return Optional<User> the user with correct username, if any.
+	 */
 	public Optional<User> getUserByUsername (final String username) {
 		return userRepository.findByUsername(username);
 	}
 	
+	/**
+	 * Get all User objects from database
+	 * @return List<User> list of all entities found in database
+	 */
 	public List<User> getAllUser() {
 		return userRepository.findAll();
 	}
 	
+	/**
+	 * Delete a User object from database by ID
+	 * @param Id the Id of the object to delete
+	 */
 	public void deleteUser (final int Id) {
 		userRepository.deleteById(Id);
 	}
 	
+	/**
+	 * Save or update a User object into database.
+	 * @param user the User to save or update into database
+	 * @return user the saved User
+	 */
 	public User saveUser (User user) {
 		User savedUser = userRepository.save(user);
 		return savedUser;
 	}
 	
-	
+	/**
+	 * Check if a password is valid (number of characters,...)
+	 * @param password to check 
+	 * @return boolean true if the password is valid
+	 */
 	public boolean checkPasswordValidity(String password) {
 		
 		boolean passwordIsValid = false;

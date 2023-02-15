@@ -94,7 +94,6 @@ public class CurveControllerTests {
 		this.mockMvc.perform(echoUserReq)
 		.andDo(MockMvcResultHandlers.print())
 		.andExpect(status().isFound());
-		//.andExpect(view().name("curvePoint/list"));
 		;
 		
 	}
